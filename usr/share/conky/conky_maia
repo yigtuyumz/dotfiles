@@ -1,0 +1,46 @@
+conky.config = {
+	alignment = 'bottom_right',
+	background = true,
+	cpu_avg_samples = 2,
+	default_color = '5D7B86',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=9',
+	draw_shades = false,
+	gap_x = 20,
+	gap_y = 5,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 3.0,
+	use_xft = true,
+	
+	color1 = '5D7B86',
+	color2 = '00EE6E',
+	color3 = 'B6C700'
+}
+conky.text = [[
+${if_match "${addr wlp3s0}"!="No Address"}
+${color1}Down: ${color2}${downspeedf wlp3s0}kb/s${alignr}${color1}RX: ${color2}${execpi 2 bash /home/wagabond12/i3scripts/conky/general.sh "wlan" "rx"}
+${alignc}${color1}${downspeedgraph wlp3s0 20,176 00EE6E 00CD5F -l -t}
+${color1}Up: ${color2}${upspeedf wlp3s0}kb/s${alignr}${color1}TX: ${color2}${execpi 2 bash /home/wagabond12/i3scripts/conky/general.sh "wlan" "tx"}
+${alignc}${color1}${upspeedgraph wlp3s0 20,176 00EE6E 00CD5F -l -t}
+${endif}
+${if_match "${addr enp2s0}"!="No Address"}
+${color1}Down: ${color3}${downspeedf enp2s0}kb/s${alignr}${color1}RX: ${color3}${execpi 2 bash /home/wagabond12/i3scripts/conky/general.sh "eth" "rx"}
+${alignc}${color1}${downspeedgraph enp2s0 40,176 7E8A00 B6C700 -l -t}
+${color1}Up: ${color3}${upspeedf enp2s0}kb/s${alignr}${color1}TX: ${color3}${execpi 2 bash /home/wagabond12/i3scripts/conky/general.sh "eth" "tx"}
+${alignc}${color1}${upspeedgraph enp2s0 40,176 7E8A00 B6C700 -l -t}
+${endif}
+${alignc}${color1}/
+${alignc}${color3}${fs_used} / ${fs_free /}
+${alignc}${fs_bar 3,176 /}
+
+
+${alignc}${color1}/mnt/sandisk
+${alignc}${color3}${fs_used /mnt/sandisk} / ${fs_free /mnt/sandisk}
+${alignc}${fs_bar 3,176 /mnt/sandisk}
+
+
+]]
+
