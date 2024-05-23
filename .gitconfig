@@ -2,4 +2,7 @@
 	name = yigtuyumz
 	email = yigtuyumz@gmail.com
 [alias]
+	l = log
 	ll = log --oneline
+	s = status
+
