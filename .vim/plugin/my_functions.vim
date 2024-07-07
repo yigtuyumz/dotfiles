@@ -54,7 +54,14 @@ endfunction
 function! HideHiddenChars()
 	set nolist
 endfunction
- 
+
+
+function! Change(search, replace)
+	silent! execute '%s/' . a:search . '/' . a:replace . '/gc'
+endfunction
+command! -nargs=+ Change call Change(<f-args>)
+
+
 autocmd InsertEnter * call ShowHiddenChars()
 autocmd InsertLeave * call HideHiddenChars()
 

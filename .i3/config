@@ -73,23 +73,24 @@ exec --no-startup-id volumeicon
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+$ctrl+b  exec terminal -e 'bmenu'
-bindsym $mod+F1       exec pcmanfm
-bindsym $mod+F2       exec firefox
-bindsym $mod+F3       exec virtualbox
-bindsym $mod+F4       exec code
-bindsym $mod+F5       exec eclipse
-bindsym $mod+$ctrl+F4 exec vscodium
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym Print         exec --no-startup-id i3-scrot
-bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+$ctrl+t exec --no-startup-id picom -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+$ctrl+x --release exec --no-startup-id xkill
-bindsym $mod+F7 exec --no-startup-id vimf "USB Keyboard" "Microsoft Bluetooth Keyboard" "AT Translated Set 2 keyboard"
-bindsym $mod+e exec --no-startup-id /home/wagabond12/i3scripts/audio/easyeffects_toggle.sh
+bindsym $mod+$ctrl+b                  exec terminal -e 'bmenu'
+bindsym $mod+F1                       exec pcmanfm
+bindsym $mod+F2                       exec firefox
+bindsym $mod+F3                       exec virtualbox
+bindsym $mod+F4                       exec code
+bindsym $mod+F5                       exec eclipse
+bindsym --release $mod+F10            exec xcolor -s
+bindsym $mod+$ctrl+F4                 exec vscodium
+bindsym $mod+Shift+F3                 exec pcmanfm_pkexec
+bindsym Print                         exec --no-startup-id i3-scrot
+bindsym $mod+t                        exec --no-startup-id pkill picom
+bindsym $mod+$ctrl+t                  exec --no-startup-id picom -b
+bindsym $mod+Shift+d --release        exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym --release $mod+Print          exec --no-startup-id i3-scrot -w
+bindsym --release $mod+Shift+Print    exec --no-startup-id i3-scrot -s
+bindsym --release $mod+$ctrl+x        exec --no-startup-id xkill
+bindsym $mod+e                        exec --no-startup-id /home/wagabond12/i3scripts/audio/easyeffects_toggle.sh
+bindsym $mod+F7                       exec --no-startup-id vimf "USB Keyboard" "Microsoft Bluetooth Keyboard" "AT Translated Set 2 keyboard"
 # bindsym $mod+F5 exec terminal -e 'mocp'
 
 # focus_follows_mouse no
