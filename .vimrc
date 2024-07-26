@@ -13,7 +13,8 @@ set tabstop=4
 set mouse=a
 colorscheme codedark
 """""""""""""""""""""""""""""""""""""""""
-
+map <F4> :vert term<CR>
+map <F5> :horizontal term<CR>
 
 """""SECILI ELEMANLARI KAYDIR""""""""""""
 nnoremap <silent> <F3> :m .+1<CR>==

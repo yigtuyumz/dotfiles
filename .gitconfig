@@ -5,4 +5,5 @@
 	l = log
 	ll = log --oneline
 	s = status
-
+	cu = clone https://github.com/yigtuyumz/utils
+	

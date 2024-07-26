@@ -15,3 +15,5 @@ highlight TODOCommentLine ctermfg=172 ctermbg=none cterm=bold
 syntax match UnderlineCommentLine /\S\@<!\/\/>.*/
 highlight UnderlineCommentLine ctermfg=34 ctermbg=none cterm=underline
 
+syntax match ColorVariant / \{0,\}\/\/!!.*/
+highlight ColorVariant ctermfg=220 ctermbg=none cterm=none
