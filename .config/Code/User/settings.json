@@ -1,0 +1,181 @@
+{
+	"files.autoSave": "onFocusChange",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": false,
+	"editor.minimap.enabled": false,
+	"editor.fontSize": 14,
+	"editor.fontFamily": "Consolas ligaturized v3",
+	"editor.fontLigatures": true,
+	"editor.renderWhitespace": "all",
+	"editor.autoClosingBrackets": "never",
+	"editor.lineNumbers": "on",
+	"workbench.startupEditor": "none",
+	"editor.quickSuggestions": {
+		"other": "inline",
+		"comments": "inline",
+		"strings": "inline"
+	},
+	"zenMode.hideLineNumbers": false,
+	"search.showLineNumbers": true,
+	"window.customTitleBarVisibility": "windowed",
+	"editor.scrollbar.horizontalScrollbarSize": 24,
+	"html.format.templating": true,
+	"explorer.confirmDelete": false,
+	"explorer.compactFolders": false,
+	"css.lint.unknownAtRules": "ignore",
+	"css.lint.emptyRules": "ignore",
+	"window.customMenuBarAltFocus": false,
+	"files.eol": "\n",
+
+	/* extensions */
+		/* extension name:  Render Line Endings */
+	"code-eol.newlineCharacter": "L",
+	"code-eol.crlfCharacter": "C",
+		/* extension name: Better Comments */
+	"better-comments.tags": [
+		{
+			"tag": "!",
+			"color": "#FF2D00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "%",
+			"color": "#2f52d4",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": ">",
+			"color": "#58913f",
+			"strikethrough": false,
+			"underline": true,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "?",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "/* ~",
+			"color": "#0092bf",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "~",
+			"color": "#0092bf",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "/*~",
+			"color": "#0092bf",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "//",
+			"color": "#474747",
+			"strikethrough": false,
+			"underline": true,
+			"backgroundColor": "transparent",
+			"bold": true,
+			"italic": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "*",
+			"color": "#98C379",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "/* eslint-disable",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "/* eslint",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "/* eslint-enable",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "/* jshint",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		}
+	],
+
+
+
+	/* extra emmet settings for react */
+	"emmet.syntaxProfiles": {
+		"html": {
+			"inline_break": 1
+		},
+		"javascript": "jsx",
+	},
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+
+
+	"window.menuBarVisibility": "hidden",
+	"security.workspace.trust.untrustedFiles": "open"
+}
