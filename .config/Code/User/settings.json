@@ -3,7 +3,6 @@
 	"editor.tabSize": 4,
 	"editor.insertSpaces": true,
 	"editor.detectIndentation": false,
-	"editor.minimap.enabled": false,
 	"editor.fontSize": 14,
 	"editor.fontFamily": "Consolas ligaturized v3",
 	"editor.fontLigatures": true,
@@ -159,7 +158,34 @@
 			"backgroundColor": "transparent",
 			"bold": false,
 			"italic": true
-		}
+		},
+		{
+			"tag": "NOLINTBEGIN",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "NOLINTEND",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
+		{
+			"tag": "NOLINT",
+			"color": "#d100a7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": true
+		},
 	],
 
 
@@ -177,5 +203,10 @@
 
 
 	"window.menuBarVisibility": "hidden",
-	"security.workspace.trust.untrustedFiles": "open"
+	"security.workspace.trust.untrustedFiles": "open",
+	"explorer.confirmDragAndDrop": false,
+	"editor.minimap.enabled": false,
+	"extensions.ignoreRecommendations": true,
+	"terminal.integrated.tabs.enabled": false,
+	"C_Cpp.codeAnalysis.clangTidy.enabled": true
 }
