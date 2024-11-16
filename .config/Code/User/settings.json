@@ -17,7 +17,6 @@
 	},
 	"zenMode.hideLineNumbers": false,
 	"search.showLineNumbers": true,
-	"window.customTitleBarVisibility": "windowed",
 	"editor.scrollbar.horizontalScrollbarSize": 24,
 	"html.format.templating": true,
 	"explorer.confirmDelete": false,

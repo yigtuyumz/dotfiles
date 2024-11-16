@@ -23,6 +23,10 @@ alias :q=':wq'
 alias code='/home/wagabond12/Downloads/VSCode-linux-x64/bin/code'
 
 play() {
-  /home/wagabond12/i3scripts/play.sh "${1}"
+  if [ -f /home/wagabond12/i3scripts/play.sh ]; then
+    /home/wagabond12/i3scripts/play.sh "${1}"
+  else
+    echo "/home/wagabond12/i3scripts/play.sh not found."
+  fi
 }
 
