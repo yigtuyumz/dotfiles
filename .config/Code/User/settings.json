@@ -1,7 +1,7 @@
 {
 	"files.autoSave": "onFocusChange",
 	"editor.tabSize": 4,
-	"editor.insertSpaces": true,
+	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"editor.fontSize": 14,
 	"editor.fontFamily": "Consolas ligaturized v3",
@@ -15,6 +15,9 @@
 		"comments": "inline",
 		"strings": "inline"
 	},
+	"workbench.colorCustomizations": {
+		"terminal.background": "#0a0a0a",
+	},
 	"zenMode.hideLineNumbers": false,
 	"search.showLineNumbers": true,
 	"editor.scrollbar.horizontalScrollbarSize": 24,
@@ -25,12 +28,12 @@
 	"css.lint.emptyRules": "ignore",
 	"window.customMenuBarAltFocus": false,
 	"files.eol": "\n",
-
+	"editor.autoClosingComments": "never",
 	/* extensions */
-		/* extension name:  Render Line Endings */
+	/* extension name:  Render Line Endings */
 	"code-eol.newlineCharacter": "L",
 	"code-eol.crlfCharacter": "C",
-		/* extension name: Better Comments */
+	/* extension name: Better Comments */
 	"better-comments.tags": [
 		{
 			"tag": "!",
@@ -186,9 +189,6 @@
 			"italic": true
 		},
 	],
-
-
-
 	/* extra emmet settings for react */
 	"emmet.syntaxProfiles": {
 		"html": {
@@ -199,13 +199,27 @@
 	"emmet.includeLanguages": {
 		"javascript": "javascriptreact"
 	},
-
-
 	"window.menuBarVisibility": "hidden",
 	"security.workspace.trust.untrustedFiles": "open",
 	"explorer.confirmDragAndDrop": false,
 	"editor.minimap.enabled": false,
 	"extensions.ignoreRecommendations": true,
 	"terminal.integrated.tabs.enabled": false,
-	"C_Cpp.codeAnalysis.clangTidy.enabled": true
+	"github.copilot.enable": {
+		"*": false,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
+	},
+	"42header.username": "yuyumaz",
+	"42header.email": "yuyumaz@student.42kocaeli.com.tr",
+	"remote.SSH.enableRemoteCommand": true,
+	
+	"window.titleBarStyle": "native",
+	"window.customTitleBarVisibility": "never",
+	"chat.commandCenter.enabled": false,
+	"database-client.autoSync": true,
+	"C_Cpp.codeAnalysis.clangTidy.enabled": false,
+	"diffEditor.ignoreTrimWhitespace": false,
+	
 }

@@ -9,6 +9,6 @@ if ! [ -f "${bgfile}" ]; then
   bgfile="${HOME}/.local/share/black.png"
 fi
 
-for ((i = 1; i <= "${monitor_count}"; i++)) ; do
+for ((i = 0; i < "${monitor_count}"; i++)) ; do
   nitrogen --head="${i}" --set-zoom-fill "${bgfile}" 2>/dev/null
 done

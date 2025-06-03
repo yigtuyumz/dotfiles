@@ -5,7 +5,8 @@
 # disks are added and removed. See fstab(5).
 #
 # <file system>             <mount point>  <type>  <options>  <dump>  <pass>
-UUID=F2D1-DE85                            /boot/efi      vfat    umask=0077 0 2
-UUID=6f0057e7-67d8-4ed9-9524-25cb1387d608 /              ext4    defaults,noatime 0 1
-UUID=69739fdd-1768-46da-aa2f-1315046f8580 /mnt/sandisk   ext4    defaults 0 2
-tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+UUID=A7A4-EFE9                              /boot/efi      vfat    umask=0077 0 2
+UUID=02da4289-b073-4c32-8bef-0ace9e1710a0   /              ext4    defaults,noatime 0 1
+UUID=9e00a3b4-a829-4c88-94a5-f072d8cc0eba   swap           swap    defaults,noatime 0 0
+tmpfs                                       /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+# UUID=69739fdd-1768-46da-aa2f-1315046f8580   /mnt/sandisk   ext4    defaults 0 2

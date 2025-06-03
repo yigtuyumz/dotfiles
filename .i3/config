@@ -22,7 +22,7 @@ bindsym $alt+$ctrl+n exec playerctl previous
 
 
 
-for_window [class="URxvt" instance="urxvt"] floating disable
+for_window [class="URxvt" instance="urxvt"] floating enable
 for_window [class="vimf" instance="vimf"] floating enable, move position 0 0, resize set 200 102
 
 # set default desktop layout (default is tiling)
@@ -78,7 +78,11 @@ bindsym $mod+F1                       exec pcmanfm
 bindsym $mod+F2                       exec firefox
 bindsym $mod+F3                       exec virtualbox
 bindsym $mod+F4                       exec code
-bindsym $mod+F5                       exec eclipse
+bindsym $mod+F5                       exec --no-startup-id vncviewer
+bindsym $mod+F6                       exec --no-startup-id /usr/bin/postman
+bindsym $mod+F7                       exec --no-startup-id vimf "USB Keyboard" "Microsoft Bluetooth Keyboard" "AT Translated Set 2 keyboard"
+bindsym $mod+F12                      exec flameshot gui
+bindsym $mod+$ctrl+c                  exec --no-startup-id /home/wagabond12/Downloads/Cursor.AppImage
 bindsym --release $mod+F10            exec xcolor -s
 bindsym $mod+$ctrl+F4                 exec vscodium
 bindsym $mod+Shift+F3                 exec pcmanfm_pkexec
@@ -90,7 +94,6 @@ bindsym --release $mod+Print          exec --no-startup-id i3-scrot -w
 bindsym --release $mod+Shift+Print    exec --no-startup-id i3-scrot -s
 bindsym --release $mod+$ctrl+x        exec --no-startup-id xkill
 bindsym $mod+e                        exec --no-startup-id /home/wagabond12/i3scripts/audio/easyeffects_toggle.sh
-bindsym $mod+F7                       exec --no-startup-id vimf "USB Keyboard" "Microsoft Bluetooth Keyboard" "AT Translated Set 2 keyboard"
 # bindsym $mod+F5 exec terminal -e 'mocp'
 
 # focus_follows_mouse no
@@ -295,7 +298,7 @@ exec --no-startup-id nitrogen --restore;
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
@@ -407,39 +410,40 @@ smart_gaps on
 smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# set $mode_gaps Gaps: (o) outer, (i) inner
+# set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
+# 
+# mode "$mode_gaps" {
+#         bindsym o      mode "$mode_gaps_outer"
+#         bindsym i      mode "$mode_gaps_inner"
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+# mode "$mode_gaps_inner" {
+#         bindsym plus  gaps inner current plus 5
+#         bindsym minus gaps inner current minus 5
+#         bindsym 0     gaps inner current set 0
+# 
+#         bindsym Shift+plus  gaps inner all plus 5
+#         bindsym Shift+minus gaps inner all minus 5
+#         bindsym Shift+0     gaps inner all set 0
+# 
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+# mode "$mode_gaps_outer" {
+#         bindsym plus  gaps outer current plus 5
+#         bindsym minus gaps outer current minus 5
+#         bindsym 0     gaps outer current set 0
+# 
+#         bindsym Shift+plus  gaps outer all plus 5
+#         bindsym Shift+minus gaps outer all minus 5
+#         bindsym Shift+0     gaps outer all set 0
+# 
+#         bindsym Return mode "default"
+#         bindsym Escape mode "defaControl
+# }
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "defaControl
-}
-
+# for_window [class="wine"] floating enable

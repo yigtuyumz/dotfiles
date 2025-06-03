@@ -7,7 +7,8 @@ hexdec() {
 }
 
 hexbin() {
-  j=$1
+  local j
+  j=${1}
   echo "obase=2; ibase=16; ${j^^}" | bc
 }
 
@@ -20,7 +21,8 @@ decbin() {
 }
 
 binhex() {
-  j=$1
+  local j
+  j=${1}
   echo "obase=16; ibase=2; ${j^^}" | bc
 }
 
@@ -75,7 +77,12 @@ if [[ ${!#} =~ $REGEX ]] 2>/dev/null; then
   for i in "${OPS[@]}"; do
     CALLFUNCTION+="${i}"
   done
-  "${CALLFUNCTION}" ${!#} 2>/dev/null || usage
+  # skip first positional parameter, which is option string
+  shift 1
+  for arg in "$@"; do
+    "${CALLFUNCTION}" "${arg}" 2>/dev/null || usage
+  done
 else
   usage
 fi
+

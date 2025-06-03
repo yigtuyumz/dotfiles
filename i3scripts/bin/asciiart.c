@@ -33,38 +33,22 @@ stlen(char *str)
 int
 is_lower(char c)
 {
-    if (c >= 'a' && c <= 'z') {
-        return (1);
-    } else {
-        return (0);
-    }
+    return (c >= 'a' && c <= 'z');
 }
 
 // is the letter a whitespace character?
 int
 is_blank(char c)
 {
-    if ((c == ' ')  || \
-        (c == '\t') || \
-        (c == '\n') || \
-        (c == '\v') || \
-        (c == '\f') || \
-        (c == '\r'))
-        {
-            return (1);
-        }
-    return (0);
+    return ((c == ' ') || (c == '\t') || (c == '\n')
+            || (c == '\v') || (c == '\f') || (c == '\r'));
 }
 
 // is the letter an uppercase character?
 int
 is_upper(char c)
 {
-    if (c >= 'A' && c <= 'Z') {
-        return (1);
-    } else {
-        return (0);
-    }
+    return (c >= 'A' && c <= 'Z');
 }
 
 // gets the index of char
@@ -140,9 +124,7 @@ main(int argc, char *argv[])
         return (1);
     }
 
-
     term_specs_t term = get_term_specs();
-
 
     display(argv[1], term);
     return (0);
