@@ -15,7 +15,7 @@ let s:length	= 80
 let s:margin	= 5
 
 let s:types		= {
-			\'\.c$\|\.h$\|\.cc$\|\.hh$\|\.cpp$\|\.hpp$\|\.tpp$\|\.ipp$\|\.cxx$\|\.go$\|\.rs$\|\.php$\|\.py$\|\.java$\|\.kt$\|\.kts$':
+			\'\.c$\|\.h$\|\.cc$\|\.hh$\|\.cpp$\|\.hpp$\|\.tpp$\|\.ipp$\|\.cxx$\|\.go$\|\.rs$\|\.php$\|\.java$\|\.kt$\|\.kts$':
 			\['/*', '*/', '*'],
 			\'\.htm$\|\.html$\|\.xml$':
 			\['<!--', '-->', '*'],
@@ -32,7 +32,9 @@ let s:types		= {
 			\'\.f90$\|\.f95$\|\.f03$\|\.f$\|\.for$':
 			\['!', '!', '/'],
 			\'\.lua$':
-			\['--', '--', '-']
+			\['--', '--', '-'],
+			\'\.py$':
+			\['#', '#', '*']
 			\}
 
 function! s:filetype()
@@ -59,7 +61,12 @@ endfunction
 function! s:textline(left, right)
 	let l:left = strpart(a:left, 0, s:length - s:margin * 2 - strlen(a:right))
 
-	return s:start . repeat(' ', s:margin - strlen(s:start)) . l:left . repeat(' ', s:length - s:margin * 2 - strlen(l:left) - strlen(a:right)) . a:right . repeat(' ', s:margin - strlen(s:end)) . s:end
+	let l:spaces = s:length - s:margin * 2 - strlen(l:left) - strlen(a:right)
+	if l:spaces < 0
+		let l:spaces = 0
+	endif
+
+	return s:start . repeat(' ', s:margin - strlen(s:start)) . l:left . repeat(' ', l:spaces) . a:right . repeat(' ', s:margin - strlen(s:end)) . s:end
 endfunction
 
 function! s:line(n)
@@ -86,7 +93,7 @@ function! s:user()
 	endif
 	let l:user = $USER_42
 	if strlen(l:user) == 0
-		let l:user = "marvin"
+		let l:user = "EXPORT::$USER_42"
 	endif
 	return l:user
 endfunction
@@ -97,7 +104,7 @@ function! s:mail()
 	endif
 	let l:mail = $MAIL_42
 	if strlen(l:mail) == 0
-		let l:mail = "marvin@42.fr"
+		let l:mail = "EXPORT::$MAIL_42"
 	endif
 	return l:mail
 endfunction
@@ -131,9 +138,13 @@ function! s:update()
 	call s:filetype()
 	if getline(9) =~ s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
 		if &mod
-			call setline(9, s:line(9))
+			if s:not_rebasing()
+				call setline(9, s:line(9))
+			endif
 		endif
-		call setline(4, s:line(4))
+		if s:not_rebasing()
+			call setline(4, s:line(4))
+		endif
 		return 0
 	endif
 	return 1
@@ -145,7 +156,45 @@ function! s:stdheader()
 	endif
 endfunction
 
+function! s:fix_merge_conflict()
+	call s:filetype()
+	let l:checkline = s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
+
+	" fix conflict on 'Updated:' line
+	if getline(9) =~ "<<<<<<<" && getline(11) =~ "=======" && getline(13) =~ ">>>>>>>" && getline(10) =~ l:checkline
+		let l:line = 9
+		while l:line < 12
+			call setline(l:line, s:line(l:line))
+			let l:line = l:line + 1
+		endwhile
+		echo "42header conflicts automatically resolved!"
+	exe ":12,15d"
+
+	" fix conflict on both 'Created:' and 'Updated:' (unlikely, but useful in case)
+	elseif getline(8) =~ "<<<<<<<" && getline(11) =~ "=======" && getline(14) =~ ">>>>>>>" && getline(10) =~ l:checkline
+		let l:line = 8
+		while l:line < 12
+			call setline(l:line, s:line(l:line))
+			let l:line = l:line + 1
+		endwhile
+		echo "42header conflicts automatically resolved!"
+	exe ":12,16d"
+	endif
+endfunction
+
+function! s:not_rebasing()
+	if system("ls `git rev-parse --git-dir 2>/dev/null` | grep rebase | wc -l")
+		return 0
+	endif
+	return 1
+endfunction
+
 " Bind command and shortcut
+
 command! Stdheader call s:stdheader ()
-" map <F12> :Stdheader<CR>
-autocmd BufWritePre * call s:update ()
+
+augroup stdheader
+	autocmd!
+	autocmd BufWritePre * call s:update ()
+	autocmd BufReadPost * call s:fix_merge_conflict ()
+augroup END
